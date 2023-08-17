@@ -29,7 +29,9 @@ class MyMoviesPage extends StatelessWidget {
         body: const Column(
           children: [
             SearchField(),
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             Expanded(child: MovieListController()),
           ],
         ),
@@ -61,8 +63,14 @@ class MovieListController extends StatelessWidget {
             movies: state.movies,
           );
         } else {
-          return const Center(
-            child: Text('Something went wrong!'),
+          return Center(
+            child: Text(
+              'Something went wrong!',
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyLarge
+                  ?.copyWith(color: Colors.white),
+            ),
           );
         }
       },
