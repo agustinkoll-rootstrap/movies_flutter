@@ -30,7 +30,7 @@ class MyMoviesPage extends StatelessWidget {
           children: [
             SearchField(),
             SizedBox(height: 10,),
-            Expanded(child: MyMoviesController()),
+            Expanded(child: MovieListController()),
           ],
         ),
       ),
@@ -38,23 +38,10 @@ class MyMoviesPage extends StatelessWidget {
   }
 }
 
-class MyMoviesController extends StatefulWidget {
-  const MyMoviesController({
+class MovieListController extends StatelessWidget {
+  const MovieListController({
     super.key,
   });
-
-  @override
-  State<MyMoviesController> createState() => _MyMoviesControllerState();
-}
-
-class _MyMoviesControllerState extends State<MyMoviesController> {
-  String query = "";
-
-  void onQueryChanged(String newValue) {
-    setState(() {
-      query = newValue;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +59,6 @@ class _MyMoviesControllerState extends State<MyMoviesController> {
         } else if (state is MovieLoaded) {
           return MyMoviesList(
             movies: state.movies,
-            callback: onQueryChanged,
           );
         } else {
           return const Center(

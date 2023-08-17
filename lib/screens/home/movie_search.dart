@@ -27,9 +27,6 @@ class SearchField extends StatelessWidget {
           ),
         ),
         style: const TextStyle(color: Colors.white),
-        onSubmitted: (value) {
-          //callback(value);
-        },
         onChanged: (value) {
           BlocProvider.of<MovieCubit>(context).filterMovies(value);
         },

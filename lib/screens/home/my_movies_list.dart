@@ -9,12 +9,9 @@ import '../../domain/movie.dart';
 class MyMoviesList extends StatelessWidget {
   final List<Movie> movies;
 
-  final Function(String) callback;
-
   MyMoviesList({
     super.key,
     required this.movies,
-    required this.callback
   });
 
   @override
