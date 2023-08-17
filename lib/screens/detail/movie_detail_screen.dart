@@ -11,36 +11,39 @@ class MovieDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            Stack(
-              children: [
-                Image.network(
-                  'https://image.tmdb.org/t/p/w500${movie.posterPath}?api_key=$API_KEY',
-                  fit: BoxFit.cover,
-                  height: 400,
-                  width: double.infinity,
-                  //  colorBlendMode: BlendMode.darken,
-                  //   color: Colors.black.withOpacity(0.5),
-                ),
-                Container(
-                  height: 400,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        Color(0xFF000000),
-                        Color(0x00000000),
-                      ],
-                      begin: Alignment.bottomCenter,
-                      end: Alignment.topCenter,
+      child: Scaffold(
+        backgroundColor: Colors.black87,
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Stack(
+                children: [
+                  Image.network(
+                    'https://image.tmdb.org/t/p/w500${movie.posterPath}?api_key=$API_KEY',
+                    fit: BoxFit.cover,
+                    height: 400,
+                    width: double.infinity,
+                    //  colorBlendMode: BlendMode.darken,
+                    //   color: Colors.black.withOpacity(0.5),
+                  ),
+                  Container(
+                    height: 400,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          Color(0xFF000000),
+                          Color(0x00000000),
+                        ],
+                        begin: Alignment.bottomCenter,
+                        end: Alignment.topCenter,
+                      ),
                     ),
                   ),
-                ),
-              ],
-            ),
-            MovieDetailBody(movie: movie),
-          ],
+                ],
+              ),
+              MovieDetailBody(movie: movie),
+            ],
+          ),
         ),
       ),
     );

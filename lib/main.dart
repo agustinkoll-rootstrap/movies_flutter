@@ -2,10 +2,9 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
-import 'package:movies/data/movieRepository.dart';
+import 'package:movies/data/movie_repository.dart';
 import 'package:movies/data/movie_api_client.dart';
-import 'package:movies/screens/MovieCubit.dart';
-import 'package:movies/screens/my_movies_page.dart';
+import 'package:movies/screens/movie_cubit.dart';
 
 import 'navigation.dart';
 

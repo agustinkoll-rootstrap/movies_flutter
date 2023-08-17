@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../data/movieRepository.dart';
-import 'MovieState.dart';
+import '../data/movie_repository.dart';
+import 'movie_state.dart';
 
 class MovieCubit extends Cubit<MovieState> {
 
@@ -14,6 +14,16 @@ class MovieCubit extends Cubit<MovieState> {
     emit(MovieLoading());
     try {
       final movies = await movieRepository.getMovies();
+      emit(MovieLoaded(movies: movies));
+    } catch (e) {
+      emit(MovieError(message: e.toString()));
+    }
+  }
+
+  void filterMovies(String query) async {
+    emit(MovieLoading());
+    try {
+      final movies = await movieRepository.filterMovies(query);
       emit(MovieLoaded(movies: movies));
     } catch (e) {
       emit(MovieError(message: e.toString()));

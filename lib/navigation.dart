@@ -1,6 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:movies/screens/detail/movie_detail_screen.dart';
-import 'package:movies/screens/my_movies_page.dart';
+import 'package:movies/screens/home/my_movies_page.dart';
 
 import 'domain/movie.dart';
 
